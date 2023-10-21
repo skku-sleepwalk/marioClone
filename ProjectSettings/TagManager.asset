@@ -3,18 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - QBox
+  - MainMarioHead
+  - QBoxBottom
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Space
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Mario
+  - Coin
+  - QBox
+  - Mush
   - 
   - 
   - 
