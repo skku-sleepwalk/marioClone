@@ -31,9 +31,8 @@ public class move : MonoBehaviour
                     //stack이 차면 속도가 있는 것을 간주 멈춤을 적용
                     Stop.stop = true;
                     Stop.stopTime = 0.3f;
-                    Debug.Log("drift!!!!");
-                    animator.ResetTrigger("noDrift");
-                    animator.SetTrigger("drift");
+                    TriggerSetReset("drift", "noDrift");
+                    
                 }
                 isRight= true;
                 stack = 0;
@@ -56,10 +55,8 @@ public class move : MonoBehaviour
                     Stop.stop = true;
                     Stop.stopTime = 0.3f;
 
-                    Debug.Log("drift!!!!");
-                    animator.ResetTrigger("noDrift");
-                    animator.SetTrigger("drift");
-               
+                    TriggerSetReset("drift", "noDrift");
+
                 }
                 isRight = false;
                 stack = 0;
@@ -91,7 +88,7 @@ public class move : MonoBehaviour
         // 점프 중일 때
         if (isJumping)
         {
-
+            stack = 0; //공중에서 스택 초기화
             TriggerSetReset("jump", "notJump");
             // 점프 지속 시간 동안 플레이어를 위로 움직임
             float elapsedTime = Time.time - jumpStartTime;
