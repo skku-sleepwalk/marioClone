@@ -26,10 +26,13 @@ public class move : MonoBehaviour
         {
             if (!isRight)
             {
-                if (stack > 30)
+                if (stack > 50)
                 {
+                    //stack이 차면 속도가 있는 것을 간주 멈춤을 적용
                     Stop.stop = true;
-                    Stop.stopTime = 1f;
+                    Stop.stopTime = 0.3f;
+                    Debug.Log("drift!!!!");
+                    animator.ResetTrigger("noDrift");
                     animator.SetTrigger("drift");
                 }
                 isRight= true;
@@ -48,11 +51,15 @@ public class move : MonoBehaviour
         {
             if (isRight)
             {
-                if (stack > 30)
+                if (stack > 50)
                 {
                     Stop.stop = true;
-                    Stop.stopTime = 1f;
+                    Stop.stopTime = 0.3f;
+
+                    Debug.Log("drift!!!!");
+                    animator.ResetTrigger("noDrift");
                     animator.SetTrigger("drift");
+               
                 }
                 isRight = false;
                 stack = 0;
@@ -71,7 +78,7 @@ public class move : MonoBehaviour
             // 방향키를 떼면 가속도 초기화
             timeElapsed = 0f;
             TriggerSetReset( "stop","move");
-
+            stack = 0;//멈춰 있으면 스택 초기화
         }
     }
     private void Jump()
@@ -84,6 +91,7 @@ public class move : MonoBehaviour
         // 점프 중일 때
         if (isJumping)
         {
+
             TriggerSetReset("jump", "notJump");
             // 점프 지속 시간 동안 플레이어를 위로 움직임
             float elapsedTime = Time.time - jumpStartTime;
