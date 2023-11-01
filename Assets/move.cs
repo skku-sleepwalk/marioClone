@@ -14,6 +14,7 @@ public class move : MonoBehaviour
     private float jumpStartTime;
     public bool isRight = true;//²ª±â¿ë
     public static bool canMove = true;
+    private int stack = 0;
     private void TriggerSetReset(string set,string reset)
     {
             animator.ResetTrigger(reset);
@@ -23,20 +24,46 @@ public class move : MonoBehaviour
 {
  if (Input.GetKey(KeyCode.RightArrow))
         {
+            if (!isRight)
+            {
+                if (stack > 30)
+                {
+                    Stop.stop = true;
+                    Stop.stopTime = 1f;
+                    animator.SetTrigger("drift");
+                }
+                isRight= true;
+                stack = 0;
+
+            }
             timeElapsed += Time.deltaTime;
             float speed = baseSpeed + Mathf.Log(1 + accelerationRate * timeElapsed);
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             transform.right = Vector3.right;
             TriggerSetReset("move", "stop");
+            stack++;
         }
         
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if (isRight)
+            {
+                if (stack > 30)
+                {
+                    Stop.stop = true;
+                    Stop.stopTime = 1f;
+                    animator.SetTrigger("drift");
+                }
+                isRight = false;
+                stack = 0;
+
+            }
             timeElapsed += Time.deltaTime;
             float speed = baseSpeed + Mathf.Log(1 + accelerationRate * timeElapsed);
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             transform.right = Vector3.left;
             TriggerSetReset("move", "stop");
+            stack++;
 
         }
         else

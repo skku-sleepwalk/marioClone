@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class StopWhileChanging : MonoBehaviour
+public class Stop : MonoBehaviour
 {
     public static bool stop=false;
+    public static float stopTime;
+    public Animator animator;
     private Rigidbody2D rb;
     void Update()
     {
@@ -16,7 +18,7 @@ public class StopWhileChanging : MonoBehaviour
             float gravityScaletmp = rb.gravityScale;
             rb.gravityScale = 0;
             stop = false;
-            StartCoroutine(EnableMovementAfterDelay(0.9f, gravityScaletmp));
+            StartCoroutine(EnableMovementAfterDelay(stopTime, gravityScaletmp));
         }
     }
     IEnumerator EnableMovementAfterDelay(float delay,float gravityScaletmp)
@@ -28,5 +30,7 @@ public class StopWhileChanging : MonoBehaviour
         move.canMove = true;
         rb.gravityScale = gravityScaletmp;
         // 추가적인 로직을 여기에 추가할 수 있습니다.
+        animator.SetTrigger("noDrift");
+
     }
 }

@@ -40438,6 +40438,7 @@ GameObject:
   - component: {fileID: 1506665209}
   - component: {fileID: 1506665211}
   - component: {fileID: 1506665212}
+  - component: {fileID: 1506665213}
   m_Layer: 0
   m_Name: Small.BigMario_0
   m_TagString: Untagged
@@ -40611,6 +40612,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &1506665213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506665204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3ef84fe0f096448d0ac5ebb967629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1506665209}
 --- !u!1 &1514139410
 GameObject:
   m_ObjectHideFlags: 0

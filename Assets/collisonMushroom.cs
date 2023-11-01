@@ -27,7 +27,8 @@ public class collisonMushroom : MonoBehaviour
             animator.SetBool("smaller", false);
             myCollider.size= new Vector2(myCollider.size.x, myCollider.size.y*2f);
                 eaten = true;
-                StopWhileChanging.stop = true;
+                Stop.stop = true;
+                Stop.stopTime = 0.9f;
             }
             
         }
