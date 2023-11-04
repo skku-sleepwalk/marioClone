@@ -74,7 +74,7 @@ public class move : MonoBehaviour
         {
             // 방향키를 떼면 가속도 초기화
             timeElapsed = 0f;
-            TriggerSetReset( "stop","move");
+            TriggerSetReset("stop","move");
             stack = 0;//멈춰 있으면 스택 초기화
         }
     }

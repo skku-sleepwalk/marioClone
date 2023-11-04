@@ -7,6 +7,7 @@ TagManager:
   - Mushroom
   - Ground
   - Mario
+  - Hole
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class collisonMushroom : MonoBehaviour
     // Start is called before the first frame update
     public Animator animator;
     private BoxCollider2D myCollider;
+    public RuntimeAnimatorController controller;
     private void Start()
     {
         // 스크립트가 적용된 오브젝트의 Collider2D 컴포넌트를 가져옴
@@ -22,9 +23,11 @@ public class collisonMushroom : MonoBehaviour
         {
             if (!eaten)
             {
+                
             // 애니메이션 트리거 "TriggerName"을 설정 (원하는 트리거 이름으로 바꾸세요)
-            animator.SetBool("bigger",true);
-            animator.SetBool("smaller", false);
+            //animator.SetBool("bigger",true);
+            //animator.SetBool("smaller", false);
+                animator.runtimeAnimatorController = controller;
             myCollider.size= new Vector2(myCollider.size.x, myCollider.size.y*2f);
                 eaten = true;
                 Stop.stop = true;
