@@ -8,14 +8,19 @@ public class move : MonoBehaviour
     public float accelerationRate = 0.1f; // 가속도 조절을 위한 상수
     private float timeElapsed = 0f;
     public Animator animator;
-    public float jumpForce = 7f;  // 점프에 사용될 힘
+    public float jumpForce = 8f;  // 점프에 사용될 힘
     public float jumpDuration = 0.5f; // 점프 지속 시간 (초)
     private bool isJumping = false;
     private float jumpStartTime;
     public bool isRight = true;//꺾기용
     public static bool canMove = true;
     private int stack = 0;
+    Rigidbody2D rb;
     public GameObject camera;
+    void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
     private void TriggerSetReset(string set,string reset)
     {
             animator.ResetTrigger(reset);
@@ -111,13 +116,19 @@ public class move : MonoBehaviour
  MoveHorizontal();
         Jump();
         }
-       
+        if (gameObject.transform.position.y < -5)
+        {
+            canMove = false;
+            //죽음 로직
+           
+        }
     }
        public void OnCollisionEnter2D(Collision2D collision) {
             if (collision.gameObject.tag == "QBoxTop"|| collision.gameObject.tag == "BoxTop"|| collision.gameObject.tag == "Ground")
             {
                  isJumping = false;
-            }
+          
+        }
 
     }
 }   
