@@ -8,19 +8,19 @@ public class Mush : MonoBehaviour
     public float rightpower = 2f;
     public float maxHeight = 0.41f;
     public string targetTag = "MainMarioHead";
-    private bool Collided = false;  // 충돌 여부를 나타내는 변수
+    private bool isMovingUp = true;  // 충돌 여부를 나타내는 변수
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == targetTag && !Collided)
+        if (collision.gameObject.tag == targetTag && isMovingUp)
         {
-            Collided = true;
+            isMovingUp = false;
         }
     }
     
     void Update()
     {
-        if (Collided)
+        if (isMovingUp)
         {
             if (transform.position.y < maxHeight)
             {
@@ -28,10 +28,16 @@ public class Mush : MonoBehaviour
             }
             else
             {
-                transform.Translate(Vector3.right * rightpower * Time.deltaTime, Space.World);   
+                isMovingUp = false;
             }
-            
         }
+
+        else
+        {
+            transform.Translate(Vector3.right * rightpower * Time.deltaTime, Space.World); 
+        }
+            
+        
     }
     
 

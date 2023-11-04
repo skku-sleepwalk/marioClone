@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class Gumba : MonoBehaviour
 {
-    public float minX = 31.8f;
-    public float maxX = 36.3f;
-    public float moveSpeed;
-
-    private bool movingRight = true;
-
+    // Start is called before the first frame update
+    public float speed;
     // Update is called once per frame
     void Update()
     {
-        if (movingRight){
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        }
-        else{
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        }
+        gameObject.transform.Translate(Vector3.right*speed*Time.deltaTime);
+    }
 
-        if (transform.position.x >= maxX){
-            movingRight = false;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Hole")
+        {
+            speed = -speed;
         }
-        else if (transform.position.x <= minX){
-            movingRight = true;
-        }
-
     }
 }

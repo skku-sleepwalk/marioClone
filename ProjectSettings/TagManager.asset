@@ -7,6 +7,7 @@ TagManager:
   - QBox
   - MainMarioHead
   - QBoxBottom
+  - Hole
   layers:
   - Default
   - TransparentFX
