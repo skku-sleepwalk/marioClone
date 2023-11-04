@@ -40455,7 +40455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1720240837, guid: fb9408580c5093c4c8d2824334be6931, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -40526,6 +40526,7 @@ MonoBehaviour:
   jumpForce: 7
   jumpDuration: 0.5
   isRight: 1
+  camera: {fileID: 1967350931}
 --- !u!95 &1506665209
 Animator:
   serializedVersion: 4
@@ -54330,7 +54331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bbcfda80a2a164782b318c7559f43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mario: {fileID: 0}
+  mario: {fileID: 1506665204}
 --- !u!1 &1972604418
 GameObject:
   m_ObjectHideFlags: 0

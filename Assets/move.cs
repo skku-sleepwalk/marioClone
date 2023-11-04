@@ -15,6 +15,7 @@ public class move : MonoBehaviour
     public bool isRight = true;//²ª±â¿ë
     public static bool canMove = true;
     private int stack = 0;
+    public GameObject camera;
     private void TriggerSetReset(string set,string reset)
     {
             animator.ResetTrigger(reset);
@@ -64,6 +65,7 @@ public class move : MonoBehaviour
             }
             timeElapsed += Time.deltaTime;
             float speed = baseSpeed + Mathf.Log(1 + accelerationRate * timeElapsed);
+            if(gameObject.transform.position.x>camera.transform.position.x-7)
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             transform.right = Vector3.left;
             TriggerSetReset("move", "stop");
