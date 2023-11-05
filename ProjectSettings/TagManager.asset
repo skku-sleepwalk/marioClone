@@ -4,21 +4,31 @@
 TagManager:
   serializedVersion: 2
   tags:
+
+  - QBox
+  - MainMarioHead
+  - QBoxBottom
+  - Hole
+  - MainMarioBody
+  - MainMarioFoot
+  - GumbaBody
+  - GumbaHead
   - Mushroom
   - Ground
   - Mario
   - Hole
+
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Space
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Mario
+  - Coin
+  - QBox
+  - Mush
   - 
   - 
   - 
