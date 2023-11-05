@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Gumba : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed;
-    // Update is called once per frame
+    BoxCollider2D collider;
+    void Start(){
+        collider=GetComponent<BoxCollider2D>();
+    }
     void Update()
     {
         gameObject.transform.Translate(Vector3.right*speed*Time.deltaTime);
+
+        if (GumbaHead.isDead == true)
+        {
+            Debug.Log("d");
+            //istrigger 체크 및 화면 밖으로 추락
+            collider.isTrigger = true;
+            StartCoroutine(FallOffScreen());
+        }
     }
+
+    private IEnumerator FallOffScreen()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,4 +36,6 @@ public class Gumba : MonoBehaviour
             speed = -speed;
         }
     }
+        
+
 }

@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     public float jumpForce;
     private Rigidbody2D rb;
-    private float destroyDelay = 0.6f;
+    private float destroyDelay = 1f;
 
     void Start()
     {
@@ -15,7 +15,9 @@ public class Coin : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-	    if (collision.gameObject.tag == "MainMarioHead"){
+        Debug.Log(collision.gameObject.name);
+	    if (collision.gameObject.CompareTag("MainMarioBody")){
+            Debug.Log("tt");
 		    rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
 		    StartCoroutine(DestroyAfterDelay());
 	    }

@@ -8,6 +8,10 @@ TagManager:
   - MainMarioHead
   - QBoxBottom
   - Hole
+  - MainMarioBody
+  - MainMarioFoot
+  - GumbaBody
+  - GumbaHead
   layers:
   - Default
   - TransparentFX
